@@ -13,7 +13,8 @@ sem = get_sem()
 
 # calendar basic properties
 
-now = convert_datetime(datetime.now().year, datetime.now().month, datetime.now().day)
+now = datetime.now()
+now = convert_datetime(now.year, now.month, now.day, now.hour, now.minute, now.second)
 cal = Calendar()
 cal.add('dtstamp', now)
 # cal['dtstamp'] = now
@@ -23,17 +24,18 @@ cal['summary'] = 'IITK '+exam_type+' Exam Schedule for Semester '+sem
 cal['description'] = exam_type+' Exam calendar for '+roll+' for Semester '+sem+' made using data scraped from examscheduler iitk. Python source code at github.com/zargles'
 cal.add('prodid', '-//zargles//iitk-exam-calendar//EN')
 cal.add('version', '2.0')
-print(now)
 
+print(now)
+print(cal['name'])
 
 
 # main code to enter exam events
 
 keys, got_courses = get_courses(roll)
 for x in got_courses:
-    # print(x)
+    print(x)
     y = process_course([i for i in x], keys)
-    print(y)
+    # print(y)
     exam_course = y[keys['COURSE']]
     exam_date = y[keys['DAY']]
     exam_time = y[keys['SLOT']]
@@ -63,15 +65,12 @@ for x in got_courses:
 
 
 # write to file
-cal_name = roll+'_'+sem+'.ics'
+cal_name = roll+'_'+exam_type.lower()+'_'+sem+'.ics'
 f = open(cal_name, 'wb')
 f.write(cal.to_ical())
 f.close()
 
-
-
-print(cal['name'])
-print('Calendar ready:', cal_name)
+print('\nCalendar ready:', cal_name,'\n')
 
 
 
@@ -80,8 +79,7 @@ if email:
 		import yagmail
 		subject = cal['name']
 		contents = [cal['description'], 'Would you like to add this to your Google Calendar?', cal_name]
-		print(subject)
 		yag = yagmail.SMTP(email)
 		yag.send(subject=subject, contents=contents)
 	except ModuleNotFoundError:
-		print('Sending email requires \'yagmail\', a light and safe method to send emails. Import yagmail and try again')
+		print('Sending email requires \'yagmail\', a light and safe method to send emails. Install yagmail and try again')
