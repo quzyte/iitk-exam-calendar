@@ -32,7 +32,7 @@ print(cal['name'])
 # main code to enter exam events
 
 keys, got_courses = get_courses(roll)
-for x in got_courses:
+for exam_no, x in enumerate(got_courses):
     print(x)
     y = process_course([i for i in x], keys)
     # print(y)
@@ -44,7 +44,7 @@ for x in got_courses:
     
     # an event per exam
     exam_event = Event()
-    exam_event['uid'] = roll+'_'+sem+'@'+'iitk-exam-calendar'
+    exam_event['uid'] = roll+'_'+sem+'.'+str(exam_no)+'@'+'iitk-exam-calendar'
     exam_event.add('dtstart', convert_datetime(2000+exam_date[2], exam_date[1], exam_date[0], hour=exam_time[0], minute=exam_time[1], second=0))
     exam_event.add('dtend', convert_datetime(2000+exam_date[2], exam_date[1], exam_date[0], hour=exam_time[2], minute=exam_time[3], second=0))
     exam_event['summary'] = exam_course+' '+exam_type
