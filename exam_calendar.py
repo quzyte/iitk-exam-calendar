@@ -23,7 +23,7 @@ cal['name'] = 'IITK '+exam_type+' Exam Schedule for '+roll+' for Semester '+sem
 cal['summary'] = 'IITK '+exam_type+' Exam Schedule for Semester '+sem
 cal['description'] = exam_type+' Exam calendar for '+roll+' for Semester '+sem+' made using data scraped from examscheduler iitk. Python source code at github.com/zargles'
 cal.add('prodid', '-//zargles//iitk-exam-calendar//EN')
-cal.add('version', '2.0')
+cal.add('version', '2.1')
 
 print(now)
 print(cal['name'])

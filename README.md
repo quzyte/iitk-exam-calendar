@@ -1,5 +1,5 @@
 # iitk-exam-calendar
-> Directly create ical files of exam events and add them to your Google Calendar with just your roll number.
+> Directly create ical files of exam events (and also add them to your Google Calendar with just your roll number.)
 
 ## Setup  
 ### Dependencies
@@ -7,21 +7,25 @@ This code uses the following python libraries:
 - [requests](https://pypi.org/project/requests)   to get exam data
 - [bs4](https://pypi.org/project/bs4)             to process that data
 - [icalendar](https://pypi.org/project/icalendar) to create ical calendar files
-- [pytz](https://pypi.org/project/pytz)           to set timezone in calendar
 - [yagmail](https://pypi.org/project/yagmail)  (optional, but recommended. Read note for more details)
 
 ### Miscellaneous
 - Have to be connected to IITK intranet for examscheduler to work
-If you want to send yourself an email
+
+Optionally, if you also want to send yourself an email of the calendar
 - You also need to be connected to the internet
 - You need to [enable less secure app access](https://myaccount.google.com/lesssecureapps) for your Google Account
 
 ## Install and Run
-Install any dependencies not available already (using, for ex., `pip install name_of_library`)
+Install any dependencies not available already (using, for ex., `pip install name_of_library`)  
 To install, clone the repo (`git clone https://github.com/zargles/iitk-exam-calendar.git`)  
-From the directory where you cloned the repository, run
+Then run the exam_calendar.py file  
+
+To summarise, just run
 ```
+git clone https://github.com/zargles/iitk-exam-calendar.git
 cd iitk-exam-calendar
+pip install -r requirements.txt	--user
 python3 exam_calendar.py
 ```
 and supply details when prompted.  
@@ -62,7 +66,5 @@ config.py                    helper_functions.py  README.md
 </code></pre>
   
 ### Note about sending email
-Currently, There is some problem with Google Calendar on some browsers and it doesn't add _all_ the events from the calendar.  
-  
-That is why it is recommended to send yourself an email which you can directly open in the Gmail app to preview & add to your calendar.  
+It is recommended to send yourself an email which you can directly open in the Gmail app to preview & add to your calendar. If you wish to do so, you will have to supply your Gmail username and password.  
 The code **does not** store or send your password anywhere. It is in the interest of security that the library `yagmail` has been used - This is an extremely lightweight library which handles passwords safely.

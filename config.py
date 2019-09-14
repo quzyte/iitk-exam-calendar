@@ -19,7 +19,7 @@ if not roll:
 # otherwise, leave it blank
 email = ''
 if not email:
-	email=input('Enter your GMAIL ID if you wish to send yourself an email. (recommended way)\nGive a blank input if you choose not to: ')
+	email=input('Enter your GMAIL ID if you wish to send yourself an email. (recommended)\nGive a blank input if you choose not to: ')
 
 reminders = [                     # add as many reminders as you wish by extending the list
     {                             # example reminder
