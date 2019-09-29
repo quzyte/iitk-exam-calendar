@@ -17,7 +17,7 @@ Optionally, if you also want to send yourself an email of the calendar
 - You need to [enable less secure app access](https://myaccount.google.com/lesssecureapps) for your Google Account
 
 ## Install and Run
-Install any dependencies not available already (using, for ex., `pip install name_of_library`)  
+Install any dependencies not available already (using, for ex., `pip install name_of_library`, or alternatively using a virtualenv)  
 To install, clone the repo (`git clone https://github.com/zargles/iitk-exam-calendar.git`)  
 Then run the exam_calendar.py file  
 
@@ -25,7 +25,7 @@ To summarise, just run
 ```
 git clone https://github.com/zargles/iitk-exam-calendar.git
 cd iitk-exam-calendar
-pip install -r requirements.txt	--user
+pip install -r requirements.txt
 python3 exam_calendar.py
 ```
 and supply details when prompted.  
