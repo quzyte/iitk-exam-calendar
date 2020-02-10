@@ -44,7 +44,7 @@ for exam_no, x in enumerate(got_courses):
     
     # an event per exam
     exam_event = Event()
-    exam_event['uid'] = roll+'_'+sem+'.'+str(exam_no)+'@'+'iitk-exam-calendar'
+    exam_event['uid'] = roll+'_'+exam_type+'_'+sem+'.'+str(exam_no)+'@'+'iitk-exam-calendar'
     exam_event.add('dtstart', convert_datetime(2000+exam_date[2], exam_date[1], exam_date[0], hour=exam_time[0], minute=exam_time[1], second=0))
     exam_event.add('dtend', convert_datetime(2000+exam_date[2], exam_date[1], exam_date[0], hour=exam_time[2], minute=exam_time[3], second=0))
     exam_event['summary'] = exam_course+' '+exam_type
@@ -75,11 +75,16 @@ print('\nCalendar ready:', cal_name,'\n')
 
 
 if email:
-	try:
-		import yagmail
-		subject = cal['name']
-		contents = [cal['description'], 'Would you like to add this to your Google Calendar?', cal_name]
-		yag = yagmail.SMTP(email)
-		yag.send(subject=subject, contents=contents)
-	except ModuleNotFoundError:
-		print('Sending email requires \'yagmail\', a light and safe method to send emails. Install yagmail and try again')
+    try:
+        import yagmail
+    except ModuleNotFoundError:
+        print('Sending email requires \'yagmail\', a light and safe method to send emails. Install yagmail and try again')
+    else:
+        subject = cal['name']
+        contents = [cal['description'], 'Would you like to add this to your Google Calendar?', cal_name]
+        yag = yagmail.SMTP(email)
+        try:
+            yag.send(subject=subject, contents=contents)
+        except Exception as err:
+            print(err)
+            print('This could be due to the following reasons:\n1. Your Username/Password combination is invalid.\n2. You have not turned on access for less secure apps (necessary for email; See the README).')
