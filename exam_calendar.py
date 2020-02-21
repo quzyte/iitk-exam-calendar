@@ -53,11 +53,11 @@ for exam_no, x in enumerate(got_courses):
     # exam_event.add('location', 'location unspecified')
     exam_event.add('status', 'CONFIRMED')
     
-    for rem in reminders:
+    for ind, rem in enumerate(reminders):
         exam_rem = Alarm()
         exam_rem.add('trigger', timedelta(weeks=-rem['weeks'], days=-rem['days'], hours=-rem['hours'], minutes=-rem['minutes'], seconds=-rem['seconds']))
         exam_rem.add('action', 'DISPLAY')
-        exam_rem['description'] = 'Exam event reminder'
+        exam_rem['description'] = 'Exam event reminder'+str(ind+1)
         exam_event.add_component(exam_rem)
     
     cal.add_component(exam_event)

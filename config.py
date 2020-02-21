@@ -22,19 +22,19 @@ if not email:
 	email=input('Enter your GMAIL ID if you wish to send yourself an email. (recommended)\nGive a blank input if you choose not to: ')
 
 reminders = [                     # add as many reminders as you wish by extending the list
-    {                             # example reminder
+    {                             # reminder 1
         'weeks':   0, 
         'days':    0,
-        'hours':   0,
-        'minutes': 30,
+        'hours':   24,
+        'minutes': 0,
         'seconds': 0		  # each field must be a non-negative integer
 
     },
     {                             # reminder 2
-        'weeks':   1, 
+        'weeks':   0, 
         'days':    0,
         'hours':   0,
-        'minutes': 0,
+        'minutes': 30,
         'seconds': 0		  # each field must be a non-negative integer
 
     }
