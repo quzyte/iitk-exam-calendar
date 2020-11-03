@@ -18,22 +18,22 @@ Optionally, if you also want to send yourself an email of the calendar
 
 ## Install and Run
 Install any dependencies not available already (using, for ex., `pip install name_of_library`, or alternatively using a virtualenv)  
-To install, clone the repo (`git clone https://github.com/zargles/iitk-exam-calendar.git`)  
+To install, clone the repo (`git clone https://github.com/quzyte/iitk-exam-calendar.git`)  
 Then run the exam_calendar.py file  
 
 To summarise, just run
 ```
-git clone https://github.com/zargles/iitk-exam-calendar.git
+git clone https://github.com/quzyte/iitk-exam-calendar.git
 cd iitk-exam-calendar
 pip install -r requirements.txt
-python3 exam_calendar.py
+python exam_calendar.py
 ```
 and supply details when prompted.  
 Alternatively, you can manually edit config.py to add your details if you don't want to be prompted for your details every time.
 
 ### Example run
 <pre><code>
-> git clone https://github.com/zargles/iitk-exam-calendar.git
+> git clone https://github.com/quzyte/iitk-exam-calendar.git
 Cloning into 'iitk-exam-calendar'...
 remote: Enumerating objects: 11, done.
 remote: Counting objects: 100% (11/11), done.
@@ -45,7 +45,7 @@ Unpacking objects: 100% (11/11), done.
 Enter exam type (one of 'Midsem' or 'Endsem'): midsem
 Enter roll number: 170656
 Enter your GMAIL ID if you wish to send yourself an email. (recommended way)
-Give a blank input if you choose not to: your_user_name
+Give a blank input if you choose not to: your_gmail_id
 2019-07-28 17:45:06+05:30
 IITK Midsem Exam Schedule for 170656 for Semester 2018-19-2
 ['CS682A', '17/02/19(SUN)', '18:00-20:00']
@@ -58,7 +58,7 @@ IITK Midsem Exam Schedule for 170656 for Semester 2018-19-2
 
 Calendar ready: 170656_midsem_2018-19-2.ics 
 
-Password for &lt;your_user_name@gmail.com>: 
+Password for &lt;your_gmail_id@gmail.com>: 
 Save username and password in keyring? [y/n]: n
 > ls
 <b>170656_midsem_2018-19-2.ics</b>  exam_calendar.py     __pycache__

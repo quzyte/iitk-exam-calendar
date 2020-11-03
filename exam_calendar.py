@@ -21,8 +21,8 @@ cal.add('dtstamp', now)
 # cal.add('name', 'IITK '+exam_type+' Exam Schedule for Semester '+sem)
 cal['name'] = 'IITK '+exam_type+' Exam Schedule for '+roll+' for Semester '+sem
 cal['summary'] = 'IITK '+exam_type+' Exam Schedule for Semester '+sem
-cal['description'] = exam_type+' Exam calendar for '+roll+' for Semester '+sem+' made using data scraped from examscheduler iitk. Python source code at github.com/zargles'
-cal.add('prodid', '-//zargles//iitk-exam-calendar//EN')
+cal['description'] = exam_type+' Exam calendar for '+roll+' for Semester '+sem+' made using data scraped from examscheduler iitk. Python source code at github.com/quzyte'
+cal.add('prodid', '-//quzyte//iitk-exam-calendar//EN')
 cal.add('version', '2.0')
 
 print(now)
@@ -81,7 +81,7 @@ if email:
         print('Sending email requires \'yagmail\', a light and safe method to send emails. Install yagmail and try again')
     else:
         subject = cal['name']
-        contents = [cal['description'], 'Would you like to add this to your Google Calendar?', cal_name]
+        contents = [cal['description'], 'You can add this to your Google Calendar.', cal_name]
         yag = yagmail.SMTP(email)
         try:
             yag.send(subject=subject, contents=contents)
